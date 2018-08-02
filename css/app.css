@@ -14,11 +14,16 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #ffffff url(''); /* Background pattern from Subtle Patterns */
+    background-size: cover;
+    background-repeat: no-repeat;
     font-family: 'Coda', cursive;
+    font-size: 16px;
+
 }
 
 .container {
@@ -37,37 +42,38 @@ h1 {
  * Styles for the deck of cards
  */
 
-.deck {
-    width: 660px;
-    min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
-    border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 3em;
-}
+ .deck {
+     width: 660px;
+     min-height: 680px;
+     background: linear-gradient(#66b3ff, #FFF);
+     padding: 32px;
+     border-radius: 10px;
+     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     align-items: center;
+     margin: 0 0 3em;
+ }
 
-.deck .card {
-    height: 125px;
-    width: 125px;
-    background: #2e3d49;
-    font-size: 0;
-    color: #ffffff;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-}
+
+ .deck .card {
+     height: 125px;
+     width: 125px;
+     background: #2e3d49;
+     font-size: 0;
+     color: #ffffff;
+     border-radius: 8px;
+     cursor: pointer;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+ }
 
 .deck .card.open {
     transform: rotateY(0);
-    background: #02b3e4;
+    background: #2e3d49;
     cursor: default;
 }
 
@@ -77,8 +83,75 @@ h1 {
 
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
+    background: #00ff00;
     font-size: 33px;
+}
+
+.deck .card.unMatch {
+    cursor: default;
+    background: #ff0000;
+    font-size: 33px;
+}
+
+
+.back {
+    background: #2e3d49;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.check {
+    transform: rotateY(180deg);
+}
+
+.pop-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.result {
+    position: absolute;
+    width: 500px;
+    max-width: 90vw;
+    background-color: #ff775b;
+    box-shadow: 0 -1px 0 0.2em #000000, 0 0.2em 0.2em 0 #FFF;
+    border-radius: 30px;
+}
+.finish {
+    left: 0.5em;
+    top: 5.5em;
+}
+
+.cup {
+  right: 0.5em;
+    top: 5.5em;
+}
+
+.finish, .cup {
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+    position: absolute;
+}
+
+input#btn-restart{
+    height: 30px;
+}
+
+
+
+.fa-star {
+    color: #ffd700;
+}
+
+.hide {
+    display: none;
 }
 
 /*
@@ -86,19 +159,28 @@ h1 {
  */
 
 .score-panel {
-    text-align: left;
-    width: 345px;
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.score-panel .stars {
+.score-panel {
+    text-align: left;
+    width: 456px;
+    margin-bottom: 10px;
+    background-color: rgba(29, 109, 141, 0.5);
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.score-panel .star-rating {
     margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
 }
 
-.score-panel .stars li {
+.score-panel .star-rating li {
     list-style: none;
     display: inline-block;
 }
@@ -106,4 +188,33 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+    color: #fff;
+    background-color: rgba(173, 190, 225, 0.6);
+    box-sizing: border-box;
+    outline: none;
+
+}
+
+.timer {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+.btn {
+    width: 85px;
+    height: 45px;
+    border-radius: 40px;
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: bold;
+    color: white;
+    background: rgba(29, 109, 141, 0.5);
+    border: 1px solid rgb(29, 109, 141);
+    box-sizing: border-box;
+    outline: none;
+    font-size: 0.83em;
+}
+
+.counter span {
+    display: inline-block;
+    width: 100%;
 }
